@@ -92,8 +92,8 @@ bool SortedMultiMap::removeNode(BSTNode* node, BSTNode* parent) {
 	return true;
 }
 
-// Best Case: Theta(1) (empty tree)
-// Worst Case: Theta(n + k) (degenerate tree where U is unique nodes + array reallocation)
+// Best Case: Theta(1) 
+// Worst Case: Theta(n + k) 
 // Total Complexity: O(n + k)
 void SortedMultiMap::add(TKey c, TValue v) {
 	if (root == nullptr) {
@@ -141,8 +141,8 @@ void SortedMultiMap::add(TKey c, TValue v) {
 	numElements++;
 }
 
-// Best Case: Theta(1) (key found at root)
-// Worst Case: Theta(n + k) (degenerate tree where U is unique nodes and k is number of values to copy)
+// Best Case: Theta(1)
+// Worst Case: Theta(n + k) 
 // Total Complexity: O(n + k)
 vector<TValue> SortedMultiMap::search(TKey c) const {
 	BSTNode* current = root;
@@ -163,8 +163,8 @@ vector<TValue> SortedMultiMap::search(TKey c) const {
 	return vector<TValue>();
 }
 
-// Best Case: Theta(1) (key found at root, element found at beginning of values)
-// Worst Case: Theta(n + k) (degenerate tree where U is unique nodes, shifting array of k elements)
+// Best Case: Theta(1) 
+// Worst Case: Theta(n + k) 
 // Total Complexity: O(n + k)
 bool SortedMultiMap::remove(TKey c, TValue v) {
 	BSTNode* current = root;

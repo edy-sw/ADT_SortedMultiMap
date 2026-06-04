@@ -2,9 +2,9 @@
 #include "SortedMultiMap.h"
 #include <exception>
 
-// Best Case: Theta(1) (empty tree)
-// Worst Case: Theta(n) (where n is the number of nodes, pushing left path)
-// Total Complexity: O(h) or O(n) worst case
+// Best Case: Theta(1)
+// Worst Case: Theta(n) 
+// Total Complexity: O(n)
 SMMIterator::SMMIterator(const SortedMultiMap& d) : map(d){
 	stackSize = 0;
 	stackCapacity = 10;
@@ -14,9 +14,9 @@ SMMIterator::SMMIterator(const SortedMultiMap& d) : map(d){
 	first();
 }
 
-// Best Case: Theta(1) (stack has space)
-// Worst Case: Theta(k) (reallocation of stack of capacity k)
-// Total Complexity: amortized Theta(1), worst O(h)
+// Best Case: Theta(1) 
+// Worst Case: Theta(k) 
+// Total Complexity: O(k)
 void SMMIterator::push(SortedMultiMap::BSTNode* node) {
 	if (stackSize == stackCapacity) {
 		stackCapacity *= 2;
@@ -38,9 +38,9 @@ SortedMultiMap::BSTNode* SMMIterator::pop() {
 	return stack[--stackSize];
 }
 
-// Best Case: Theta(1) (empty tree)
-// Worst Case: Theta(n) (degenerate tree pushing all nodes to left)
-// Total Complexity: O(h) or O(n) worst case
+// Best Case: Theta(1) 
+// Worst Case: Theta(n)
+// Total Complexity: O(n)
 void SMMIterator::first(){
 	stackSize = 0;
 	SortedMultiMap::BSTNode* node = map.root;
@@ -58,7 +58,7 @@ void SMMIterator::first(){
 
 // Best Case: Theta(1) (node has more array values or node just pops and has no right child)
 // Worst Case: Theta(n) (node pops, has right child, and pushes left track from there)
-// Total Complexity: amortized O(1), worst O(h) or O(n)
+// Total Complexity: O(n)
 void SMMIterator::next(){
 	if (!valid()) {
 		throw std::exception();
